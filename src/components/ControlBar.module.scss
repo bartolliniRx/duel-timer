@@ -1,0 +1,21 @@
+@import "../style/index.scss";
+
+$bar-height: min(20vw, 10vh);
+
+.bar {
+	background-color: $accent-color;
+	position: relative;
+	height: $bar-height;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: calc(0.25 * $bar-height);
+}
+.controlBttn {
+	height: 55%;
+}
+.controlBttn img {
+	height: 100%;
+	width: auto;
+}
