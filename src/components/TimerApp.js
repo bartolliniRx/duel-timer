@@ -29,6 +29,11 @@ function TimerApp() {
 		return () => clearInterval(countdown);
 	}, [isRunning]);
 
+	const hiddenStyle = {
+		opacity: "0",
+		flex: "0",
+	};
+
 	const resetTimer = timer => {
 		if (activeTimer && activeTimer !== timer) {
 			return;
@@ -58,6 +63,8 @@ function TimerApp() {
 	return (
 		<div className={styles.App}>
 			<SlidingTimer
+				addedClass={styles.flexDiv}
+				addedStyle={areTimersHidden ? hiddenStyle : ""}
 				onTimerClick={() => resetTimer("top")}
 				isActive={activeTimer === "top" ? true : false}
 				timeValue={time}
@@ -71,6 +78,8 @@ function TimerApp() {
 				onStopClick={handleStop}
 			/>
 			<SlidingTimer
+				addedClass={styles.flexDiv}
+				addedStyle={areTimersHidden ? hiddenStyle : ""}
 				onTimerClick={() => resetTimer("bottom")}
 				isActive={activeTimer === "bottom" ? true : false}
 				timeValue={time}

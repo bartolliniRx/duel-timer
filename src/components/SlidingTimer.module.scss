@@ -1,10 +1,7 @@
 @import "../style/index.scss";
 
 .timer {
-	flex: 1;
 	position: relative;
-	transition: 0.2s;
-	overflow-y: hidden;
 }
 .timeLeft {
 	position: absolute;

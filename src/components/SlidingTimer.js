@@ -1,23 +1,19 @@
 import styles from "./SlidingTimer.module.scss";
 
 function SlidingTimer({
+	addedClass = "",
+	addedStyle = "",
 	onTimerClick,
 	timerRotated = false,
 	isActive,
 	timeValue,
 	defaultTime,
-	isHidden,
 }) {
 	const convertedTime = time => {
 		const minutes = parseInt(time / 60);
 		let seconds = parseInt(time % 60);
 		seconds = seconds < 10 ? "0" + seconds : seconds;
 		return minutes + ":" + seconds;
-	};
-
-	const hiddenStyle = {
-		opacity: "0",
-		flex: "0",
 	};
 
 	const getWarningThreshold = () => {
@@ -28,7 +24,7 @@ function SlidingTimer({
 	};
 
 	const showWarning =
-		isActive && timeValue <= getWarningThreshold() ? styles.warning : null;
+		isActive && timeValue <= getWarningThreshold() ? styles.warning : {};
 
 	const sliderFill = () => {
 		if (!isActive) return 100;
@@ -45,10 +41,10 @@ function SlidingTimer({
 
 	return (
 		<div
-			className={`${styles.timer} ${showWarning}`}
+			className={`${styles.timer} ${addedClass} ${showWarning}`}
 			onClick={onTimerClick}
 			style={{
-				...(isHidden && hiddenStyle),
+				...addedStyle,
 				...(timerRotated && { transform: "rotate(180deg)" }),
 			}}
 		>
