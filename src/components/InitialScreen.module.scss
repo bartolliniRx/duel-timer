@@ -1,0 +1,27 @@
+@import "../style/index.scss";
+
+.initialScreen {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.timeInputs {
+	font-size: $mid-font;
+}
+input[type="number"] {
+	-moz-appearance: textfield; /* Firefox */
+	text-align: center;
+	width: calc(2 * $mid-font);
+	font-size: inherit;
+}
+
+// Hiding inputs' arrows
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	/* display: none; <- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	display: none;
+	margin: 0;
+}

@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import styles from "./TimerApp.module.scss";
 import ControlBar from "./ControlBar";
 import SlidingTimer from "./SlidingTimer";
+import InitialScreen from "./InitialScreen";
 
 function TimerApp() {
 	const defaultTime = 15;
 	const [time, setTime] = useState(defaultTime);
 	const [isRunning, setIsRunning] = useState(false);
 	const [activeTimer, setActiveTimer] = useState("");
-	const [areTimersHidden, setTimersHidden] = useState(false);
+	const [areTimersHidden, setTimersHidden] = useState(true);
 
 	useEffect(() => {
 		let countdown;
@@ -77,6 +78,7 @@ function TimerApp() {
 				onPauseClick={handlePause}
 				onStopClick={handleStop}
 			/>
+			<InitialScreen addedClass={styles.flexDiv} />
 			<SlidingTimer
 				addedClass={styles.flexDiv}
 				addedStyle={areTimersHidden ? hiddenStyle : ""}
