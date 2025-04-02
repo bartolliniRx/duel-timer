@@ -9,12 +9,13 @@
 }
 .timeInputs {
 	font-size: $mid-font;
+	font-family: "Roboto Mono", monospace;
 }
 input[type="number"] {
 	-moz-appearance: textfield; /* Firefox */
 	text-align: center;
-	width: calc(2 * $mid-font);
-	font-size: inherit;
+	font: inherit;
+	padding: $ws-1 0;
 }
 
 // Hiding inputs' arrows
