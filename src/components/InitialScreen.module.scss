@@ -4,25 +4,23 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
+	padding: $large-font 0;
 }
 .timeInputs {
-	font-size: $mid-font;
+	font-size: $big-font;
 	font-family: "Roboto Mono", monospace;
 }
-input[type="number"] {
+input[type="text"] {
 	-moz-appearance: textfield; /* Firefox */
 	text-align: center;
 	font: inherit;
 	padding: $ws-1 0;
+	width: $large-font;
 }
-
-// Hiding inputs' arrows
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-	/* display: none; <- Crashes Chrome on hover */
-	-webkit-appearance: none;
-	display: none;
-	margin: 0;
+button {
+	font-size: $mid-font;
+	padding: $ws-1 $ws-3;
+	border-radius: 0;
 }

@@ -1,8 +1,9 @@
 //sizes
+$scale-rate: 1.8;
 $scalable: min(10vw, 5vh);
 $ws-1: calc($scalable / 5);
-$ws-2: calc($ws-1 * 1.8);
-$ws-2: calc($ws-1 * 1.8);
+$ws-2: calc($ws-1 * $scale-rate);
+$ws-3: calc($ws-2 * $scale-rate);
 
 //colors
 $accent-color: #6668b7;
@@ -11,3 +12,5 @@ $warning-color: #c62435;
 //fonts
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 $mid-font: $scalable;
+$big-font: calc($mid-font * $scale-rate);
+$large-font: calc($big-font * $scale-rate);
