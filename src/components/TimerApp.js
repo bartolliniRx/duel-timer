@@ -32,6 +32,7 @@ function TimerApp() {
 
 	const hiddenStyle = {
 		opacity: "0",
+		height: "0",
 		flex: "0",
 	};
 
@@ -65,8 +66,7 @@ function TimerApp() {
 	return (
 		<div className={styles.App}>
 			<SlidingTimer
-				addedClass={styles.flexDiv}
-				addedStyle={areTimersHidden ? hiddenStyle : ""}
+				addedStyle={areTimersHidden ? hiddenStyle : {}}
 				onTimerClick={() => resetTimer("top")}
 				isActive={activeTimer === "top" ? true : false}
 				timeValue={time}
@@ -75,13 +75,13 @@ function TimerApp() {
 				isHidden={areTimersHidden}
 			/>
 			<ControlBar
+				addedStyle={areTimersHidden ? hiddenStyle : {}}
 				onPlayClick={handlePlay}
 				onPauseClick={handlePause}
 				onStopClick={handleStop}
 			/>
 			<SlidingTimer
-				addedClass={styles.flexDiv}
-				addedStyle={areTimersHidden ? hiddenStyle : ""}
+				addedStyle={areTimersHidden ? hiddenStyle : {}}
 				onTimerClick={() => resetTimer("bottom")}
 				isActive={activeTimer === "bottom" ? true : false}
 				timeValue={time}
@@ -89,13 +89,11 @@ function TimerApp() {
 				isHidden={areTimersHidden}
 			/>
 			<InitialScreen
-				addedClass={styles.flexDiv}
-				addedStyle={areTimersHidden ? "" : hiddenStyle}
+				addedStyle={areTimersHidden ? {} : hiddenStyle}
 				onSetTime={e => {
 					setTimersHidden(false);
 					setDefaultTime(e);
 					setTime(e);
-					console.log(time);
 				}}
 			/>
 		</div>

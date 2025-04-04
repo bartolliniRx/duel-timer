@@ -2,6 +2,10 @@
 
 .timer {
 	position: relative;
+	flex: 1;
+}
+.rotated {
+	transform: "rotate(180deg)";
 }
 .timeLeft {
 	position: absolute;

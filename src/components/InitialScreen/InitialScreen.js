@@ -2,13 +2,13 @@ import { useState } from "react";
 import styles from "./InitialScreen.module.scss";
 import TimerInput from "./TimerInput";
 
-function InitialScreen({ addedClass = "", addedStyle, onSetTime }) {
+function InitialScreen({ addedStyle, onSetTime }) {
 	const [minutes, setMinutes] = useState("01");
 	const [seconds, setSeconds] = useState("00");
 	const time = parseInt(minutes) * 60 + parseInt(seconds);
 
 	return (
-		<div style={{ ...addedStyle }} className={addedClass}>
+		<div style={addedStyle} className={styles.wrapper}>
 			<form
 				onSubmit={e => {
 					e.preventDefault();
