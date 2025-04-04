@@ -1,7 +1,8 @@
-@import "../style/index.scss";
+@import "../../style/index.scss";
 
 .initialScreen {
 	position: relative;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;

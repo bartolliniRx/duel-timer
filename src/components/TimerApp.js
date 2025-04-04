@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import styles from "./TimerApp.module.scss";
 import ControlBar from "./ControlBar";
 import SlidingTimer from "./SlidingTimer";
-import InitialScreen from "./InitialScreen";
+import InitialScreen from "./InitialScreen/InitialScreen";
 
 function TimerApp() {
-	const defaultTime = 15;
+	const [defaultTime, setDefaultTime] = useState(15);
 	const [time, setTime] = useState(defaultTime);
 	const [isRunning, setIsRunning] = useState(false);
 	const [activeTimer, setActiveTimer] = useState("");
@@ -59,6 +59,7 @@ function TimerApp() {
 		setIsRunning(false); // Stop timera
 		setActiveTimer(""); // Reset aktywnego timera
 		setTime(defaultTime); // Reset czasu
+		setTimersHidden(true);
 	};
 
 	return (
@@ -78,7 +79,6 @@ function TimerApp() {
 				onPauseClick={handlePause}
 				onStopClick={handleStop}
 			/>
-			<InitialScreen addedClass={styles.flexDiv} />
 			<SlidingTimer
 				addedClass={styles.flexDiv}
 				addedStyle={areTimersHidden ? hiddenStyle : ""}
@@ -87,6 +87,16 @@ function TimerApp() {
 				timeValue={time}
 				defaultTime={defaultTime}
 				isHidden={areTimersHidden}
+			/>
+			<InitialScreen
+				addedClass={styles.flexDiv}
+				addedStyle={areTimersHidden ? "" : hiddenStyle}
+				onSetTime={e => {
+					setTimersHidden(false);
+					setDefaultTime(e);
+					setTime(e);
+					console.log(time);
+				}}
 			/>
 		</div>
 	);
