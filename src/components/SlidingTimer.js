@@ -23,7 +23,7 @@ function SlidingTimer({
 	};
 
 	const showWarning =
-		isActive && timeValue <= getWarningThreshold() ? styles.warning : {};
+		isActive && timeValue <= getWarningThreshold() ? styles.warning : "";
 
 	const sliderFill = () => {
 		if (!isActive) return 100;
