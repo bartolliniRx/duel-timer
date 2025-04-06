@@ -1,7 +1,6 @@
 import styles from "./SlidingTimer.module.scss";
 
 function SlidingTimer({
-	addedStyle = "",
 	onTimerClick,
 	timerRotated = false,
 	isActive,
@@ -44,7 +43,6 @@ function SlidingTimer({
 				timerRotated ? styles.rotated : ""
 			}`}
 			onClick={onTimerClick}
-			style={addedStyle}
 		>
 			<div
 				className={styles.slider}

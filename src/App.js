@@ -42,11 +42,9 @@ function TimerApp() {
 	};
 
 	// styles
-	const hiddenStyle = {
-		opacity: "0",
-		height: "0",
-		flex: "0",
-	};
+	const wrapperPos = areTimersHidden // slide items depending on current view
+		? { transform: "translateY(-50%)" }
+		: { transform: "translateY(0)" };
 
 	// controls
 	const handlePlay = () => {
@@ -66,37 +64,33 @@ function TimerApp() {
 
 	return (
 		<div className={styles.App}>
-			<SlidingTimer
-				addedStyle={areTimersHidden ? hiddenStyle : {}}
-				onTimerClick={() => resetTimer("top")}
-				isActive={activeTimer === "top" ? true : false}
-				timeValue={time}
-				defaultTime={defaultTime}
-				timerRotated={true}
-				isHidden={areTimersHidden}
-			/>
-			<ControlBar
-				addedStyle={areTimersHidden ? hiddenStyle : {}}
-				onPlayClick={handlePlay}
-				onPauseClick={handlePause}
-				onStopClick={handleStop}
-			/>
-			<SlidingTimer
-				addedStyle={areTimersHidden ? hiddenStyle : {}}
-				onTimerClick={() => resetTimer("bottom")}
-				isActive={activeTimer === "bottom" ? true : false}
-				timeValue={time}
-				defaultTime={defaultTime}
-				isHidden={areTimersHidden}
-			/>
-			<InitialScreen
-				addedStyle={areTimersHidden ? {} : hiddenStyle}
-				onSetTime={e => {
-					setTimersHidden(false);
-					setDefaultTime(e);
-					setTime(e);
-				}}
-			/>
+			<div className={styles.movingWrapper} style={wrapperPos}>
+				<SlidingTimer
+					onTimerClick={() => resetTimer("top")}
+					isActive={activeTimer === "top" ? true : false}
+					timeValue={time}
+					defaultTime={defaultTime}
+					timerRotated={true}
+				/>
+				<ControlBar
+					onPlayClick={handlePlay}
+					onPauseClick={handlePause}
+					onStopClick={handleStop}
+				/>
+				<SlidingTimer
+					onTimerClick={() => resetTimer("bottom")}
+					isActive={activeTimer === "bottom" ? true : false}
+					timeValue={time}
+					defaultTime={defaultTime}
+				/>
+				<InitialScreen
+					onSetTime={e => {
+						setTimersHidden(false);
+						setDefaultTime(e);
+						setTime(e);
+					}}
+				/>
+			</div>
 		</div>
 	);
 }

@@ -7,6 +7,7 @@ $bar-height: min(20vw, 10vh);
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 }
 .controlBttn {
 	height: $mid-font;
