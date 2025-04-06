@@ -11,6 +11,7 @@ function TimerApp() {
 	const [activeTimer, setActiveTimer] = useState("");
 	const [areTimersHidden, setTimersHidden] = useState(true);
 
+	// timer funcionality
 	useEffect(() => {
 		let countdown;
 		if (isRunning) {
@@ -30,12 +31,6 @@ function TimerApp() {
 		return () => clearInterval(countdown);
 	}, [isRunning]);
 
-	const hiddenStyle = {
-		opacity: "0",
-		height: "0",
-		flex: "0",
-	};
-
 	const resetTimer = timer => {
 		if (activeTimer && activeTimer !== timer) {
 			return;
@@ -46,8 +41,14 @@ function TimerApp() {
 		setTimeout(() => setIsRunning(true), 10); // Krótka pauza przed restartem
 	};
 
-	// controls
+	// styles
+	const hiddenStyle = {
+		opacity: "0",
+		height: "0",
+		flex: "0",
+	};
 
+	// controls
 	const handlePlay = () => {
 		activeTimer && setIsRunning(true);
 	};
